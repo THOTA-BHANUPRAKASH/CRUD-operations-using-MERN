@@ -1,13 +1,14 @@
 const express = require('express')
 const cors =require('cors')
 const mongoose=require('mongoose')
+require("dotenv").config()
 
 const app=express()
 app.use(cors())
 app.use(express.json())
-const MONGO_URL="mongodb+srv://Bhanu:3699@cluster0.slme18k.mongodb.net/CRUD"
+
 const PORT = process.env.PORT || 5000
-mongoose.connect(MONGO_URL)
+mongoose.connect(process.env.MONGO_URL)
     .then(()=>{
         console.log("mongodb is running")
     })
@@ -15,6 +16,9 @@ mongoose.connect(MONGO_URL)
         console.log(`error---${error}`)
     })
 
+app.get("/",(req,res)=>{
+    res.send("Server is running")
+})
 
 const schemaData=new mongoose.Schema({
     name:String,
@@ -41,8 +45,7 @@ app.get("/get",async(req,res)=>{
 //create
 app.post("/create",async(req,res)=>{
     try{
-        const{name,email,mobile}=req.body
-        const data =new userModel({name,email,mobile})
+        const data =new userModel(req.body)
         await data.save()
         res.status(201).json(data)
     }
@@ -56,9 +59,9 @@ app.post("/create",async(req,res)=>{
 //update
 app.put("/update/:id",async(req,res)=>{
     try{
-        const{name,email,mobile}=req.body;
+        
         const data=await userModel.findByIdAndUpdate(req.params.id,
-            {name,email,mobile},{new:true});
+            req.body,{new:true});
         if(!data){
             return res.status(404).json({message:"employee not found"});
         }
