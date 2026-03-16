@@ -1,0 +1,109 @@
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.container{
+  display:flex;
+  flex-direction:column;   /* stack elements vertically */
+  align-items:center;
+}
+
+/* Add button */
+.btn-add{
+  background:rgb(21,3,183);
+  color:white;
+  padding:6px 15px;
+  border-radius:6px;
+  margin-bottom:20px;
+  cursor:pointer;
+}
+
+/* Form popup */
+.addcontainer{
+  position:absolute;
+  background:rgb(7,187,203);
+  padding:20px;
+  border-radius:8px;
+  display:flex;
+  justify-content:center;
+}
+
+/* Form layout */
+form{
+  display:flex;
+  flex-direction:column;
+  width:300px;
+  gap:8px;
+}
+
+/* Submit button */
+.submit{
+  background:rgba(7,28,211,0.6);
+  padding:6px;
+  border-radius:8px;
+  width:80px;
+  margin:auto;
+  cursor:pointer;
+}
+
+.submit:hover{
+  background:rgb(0,65,0);
+}
+
+/* Close button */
+.cross-btn{
+  align-self:flex-end;
+  width:22px;
+  height:22px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+}
+
+.cross-btn:hover{
+  background:red;
+}
+
+/* Table */
+.tableContainer{
+  margin-top:20px;
+}
+
+.tableContainer table{
+  border-collapse:collapse;
+  
+}
+
+.tableContainer th{
+  background:rgb(194,183,169);
+  min-width:200px;
+  padding:8px;
+  border-radius: 5px;
+  
+}
+.tableContainer table{
+  border-collapse: separate;
+  text-align: center;
+}
+.show-data td{
+  border-bottom: 1px solid gray;
+}
+
+.btn-edit{
+  background-color:rgb(187, 194, 50);
+  font-weight : bold;
+  border-radius: 5px;
+}
+.btn-delete{
+  background-color: rgb(119, 7, 7);
+  font-weight: bold;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+.btn-delete,.btn-edit{
+  cursor: pointer;
+}
