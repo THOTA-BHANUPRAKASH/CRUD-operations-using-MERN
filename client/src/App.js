@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios'
 
-axios.defaults.baseURL="http://localhost:5000/"
+axios.defaults.baseURL="https://crud-operations-using-mern.onrender.com"
 function App() {
   const [addbtn,setaddbtn]=useState(false)
   const[formdata,setformdata]=useState({
